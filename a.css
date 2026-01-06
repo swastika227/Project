@@ -1,0 +1,319 @@
+/* --- Global Styles (Reuse from previous answer, adding detail page specifics) --- */
+:root {
+    --primary-color: #3f51b5; /* Indigo */
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --bg-color: #f7f7f7;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --tag-bg: #eee;
+    --box-shadow-light: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* --- General Button Styles --- */
+.btn {
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    background-color: var(--card-bg);
+    text-decoration: none; /* for nav links */
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-wishlist {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.btn-wishlist:hover {
+    background-color: #e8eaf6;
+}
+.btn i {
+    font-size: 0.9rem;
+}
+
+
+/* --- Header/Navigation Bar (Updated for Detail Page) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 20px;
+}
+.page-title {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    border-left: 1px solid var(--border-color);
+    padding-left: 20px;
+}
+.navbar-center {
+    display: flex;
+    gap: 10px;
+}
+.nav-btn {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+.nav-btn:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+.nav-icon-link {
+    color: #f44336; /* Logout color */
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.9rem;
+}
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* --- Recipe Header and Main Details --- */
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.recipe-main-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.recipe-details-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+    margin-bottom: 20px;
+}
+.recipe-title-small {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.recipe-description-small {
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* --- Meta Row (Time and Servings) --- */
+.recipe-meta-row {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+.meta-box {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    border-right: 1px solid var(--border-color);
+}
+.meta-box:last-child {
+    border-right: none;
+}
+.meta-label {
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+}
+.meta-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+/* Tags Styling */
+.tag-recipe-item {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: var(--tag-bg);
+    color: var(--secondary-text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+/* --- Two-Column Layout --- */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Calculator takes 1 part, Instructions take 2 parts */
+    gap: 20px;
+}
+
+/* Panel Base Style */
+.panel {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+.panel-icon {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+.panel h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* --- Ingredient Calculator (Left Column) --- */
+.servings-input-group {
+    margin-bottom: 20px;
+}
+.servings-input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 5px;
+}
+.input-with-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.servings-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+.input-with-icon .icon-action {
+    padding: 10px;
+    color: var(--primary-color);
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
+.calculator-panel h4 {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+}
+
+.ingredients-list {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.ingredient-item:last-child {
+    border-bottom: none;
+}
+.ingredient-name {
+    font-weight: 500;
+}
+.ingredient-qty {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* --- Instructions (Right Column) --- */
+.instruction-steps {
+    list-style: none;
+    padding: 0;
+}
+.instruction-steps li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.step-number {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.instruction-steps p {
+    margin: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .two-column-layout {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}

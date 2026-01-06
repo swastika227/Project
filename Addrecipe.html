@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavourTrack - Add New Recipe</title>
+    <link rel="stylesheet" href="addrecipe.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="brand">FlavourTrack</span>
+            <span class="badge">Recipe Manager</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn"><i class="ph ph-arrow-left"></i> Back</button>
+            <button class="nav-btn"><i class="ph ph-house"></i> Home</button>
+            <button class="nav-btn active"><i class="ph ph-plus"></i> Add Recipe</button>
+            <button class="nav-btn"><i class="ph ph-calculator"></i> Multi Calculator</button>
+            <button class="nav-btn"><i class="ph ph-package"></i> Pantry</button>
+            <button class="nav-btn"><i class="ph ph-heart"></i> Wishlist</button>
+            <button class="nav-btn logout"><i class="ph ph-sign-out"></i> Logout</button>
+            <i class="ph ph-user-circle profile-icon"></i>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="recipe-card">
+            <h2>Add New Recipe</h2>
+          <form id="recipeForm" action="addrecipe.php" method="POST">
+                <div class="form-row">
+                    <div class="form-group flex-3">
+                        <label>Recipe Title *</label>
+                        <input type="text" placeholder="Enter recipe title" required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Servings *</label>
+                        <input type="number" value="4" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea placeholder="Brief description of your recipe" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Prep Time (minutes)</label>
+                        <input type="number" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Cook Time (minutes)</label>
+                        <input type="number" value="0">
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <label>Ingredients *</label>
+                    <button type="button" class="add-btn" onclick="addIngredient()"><i class="ph ph-plus"></i> Add Ingredient</button>
+                </div>
+                <div id="ingredients-list">
+                    <div class="dynamic-row">
+                        <input type="text" class="flex-3" placeholder="Ingredient name">
+                        <input type="text" class="flex-1" placeholder="Qty">
+                        <input type="text" class="flex-1" placeholder="Unit">
+                        <button type="button" class="remove-btn"><i class="ph ph-x"></i></button>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <label>Instructions *</label>
+                    <button type="button" class="add-btn" onclick="addStep()"><i class="ph ph-plus"></i> Add Step</button>
+                </div>
+                <div id="instructions-list">
+                    <div class="dynamic-row">
+                        <span class="step-num">1</span>
+                        <textarea class="flex-grow" placeholder="Step 1 instructions"></textarea>
+                        <button type="button" class="remove-btn"><i class="ph ph-x"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tag-input-wrapper">
+                        <input type="text" placeholder="Add a tag">
+                        <button type="button" class="tag-add-btn">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Save Recipe</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="addrecipe.js

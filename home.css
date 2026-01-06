@@ -1,0 +1,281 @@
+/* --- Global Styles --- */
+:root {
+    --primary-color: #3f51b5; /* A shade of indigo for primary actions */
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --bg-color: #f7f7f7;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --tag-bg: #eee;
+    --tag-active-bg: var(--primary-color);
+    --tag-active-text: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 20px;
+}
+
+.page-title {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    border-left: 1px solid var(--border-color);
+    padding-left: 20px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 15px;
+}
+
+.btn-primary:hover {
+    background-color: #3949a8;
+}
+
+.nav-icon-link {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 0.9rem;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #f44336; /* Example color for the initial 'L' */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* --- Search and Filters --- */
+.filter-section {
+    padding: 30px 0 15px;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.search-icon {
+    color: var(--secondary-text-color);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.filter-title {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+}
+
+.tag-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.tag-filter {
+    background-color: var(--tag-bg);
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border: 1px solid var(--tag-bg);
+}
+
+.tag-filter:hover {
+    background-color: #e0e0e0;
+}
+
+.tag-filter.active {
+    background-color: var(--tag-active-bg);
+    color: var(--tag-active-text);
+    border-color: var(--tag-active-bg);
+}
+
+
+/* --- Recipe Grid --- */
+.recipe-list-header p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.recipe-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.recipe-actions {
+    display: flex;
+    gap: 10px;
+    color: var(--secondary-text-color);
+}
+
+.icon-action {
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.icon-action:hover {
+    color: var(--primary-color);
+}
+
+.recipe-description {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    min-height: 40px; /* Ensure consistent height for descriptions */
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.meta-item i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tag-recipe-item {
+    background-color: var(--tag-bg);
+    color: var(--secondary-text-color);
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.tag-more {
+    color: var(--primary-color);
+    background-color: #e8eaf6; /* Lighter primary shade */
+}
+
+.recipe-ingredients {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: auto; /* Pushes the button to the bottom */
+}
+
+.btn-dark {
+    background-color: var(--text-color);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+}

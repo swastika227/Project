@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlavourTrack - My Wishlist</title>
+    <link rel="stylesheet" href="wishlist.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+      <input type="hidden" name="action" value="save">
+    <header class="navbar">
+        <div class="logo"><span class="brand">FlavourTrack</span><span class="badge">Recipe Manager</span></div>
+        <nav class="nav-links">
+            <button class="nav-btn"><i class="ph ph-arrow-left"></i> Back</button>
+            <button class="nav-btn"><i class="ph ph-house"></i> Home</button>
+            <button class="nav-btn"><i class="ph ph-heart active"></i> Wishlist</button>
+            <button class="nav-btn logout"><i class="ph ph-sign-out"></i> Logout</button>
+        </nav>
+    </header>
+
+    <main class="wishlist-container">
+        <header class="page-header">
+            <h1 class="heart-title"><i class="ph-fill ph-heart"></i> My Wishlist</h1>
+            <p>Your favorite recipes, saved for easy access</p>
+        </header>
+
+        <div class="search-bar-row">
+            <div class="search-input">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="wishlistSearch" placeholder="Search wishlist...">
+            </div>
+            <span class="count-badge">2 recipes</span>
+        </div>
+
+        <section class="recipe-grid" id="recipeGrid">
+            </section>
+
+        <section class="stats-bar">
+            <div class="stat-item"><strong>2</strong><p>Saved Recipes</p></div>
+            <div class="stat-item"><strong>14</strong><p>Total Ingredients</p></div>
+            <div class="stat-item"><strong>26</strong><p>Avg. Time (min)</p></div>
+            <div class="stat-item"><strong>6</strong><p>Unique Tags</p></div>
+        </section>
+    </main>
+
+    <script src="wishlist.js"></script>
+</body>
+</html>
